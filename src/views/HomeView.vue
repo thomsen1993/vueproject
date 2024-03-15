@@ -44,19 +44,19 @@ export default {
           "title": "“A terrific piece of praise”",
           "name": "Jimmi",
           "description": "description",
-          "src": "/assets/images/a.jpeg"
+          "src": "/public/assets/images/a.jpeg"
         },
         {
           "title": "“A fantastic bit of feedback”",
           "name": "Jimmi",
           "description": "description",
-          "src": "/assets/images/b.jpg"
+          "src": "/public/assets/images/b.jpg"
         },
         {
           "title": "“A genuinely glowing review”",
           "name": "Jimmi",
           "description": "description",
-          "src": "/assets/images/c.jpg"
+          "src": "/public/assets/images/c.jpg"
         },
       ]
     }
