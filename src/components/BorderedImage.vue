@@ -10,7 +10,7 @@ const props = defineProps(['src'])
 
 <style scoped>
 .borderedImage {
-  border: 2px solid var(--border);
+  border: var(--border);
   background-color: var(--bg);
   width: max-content;
   margin: 0 auto;
@@ -19,6 +19,7 @@ const props = defineProps(['src'])
   transform: rotate(10deg);
   width: 100%;
   height: auto;
+  z-index: -1;
 }
 
 .borderedImage img {

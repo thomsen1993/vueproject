@@ -9,25 +9,33 @@ import Btn from "@/components/Btn.vue";
       <p class="sub-title">And a subheading describing the web site</p>
       <Btn></Btn>
     </div>
-    <BorderedImage src="../../public/assets/images/hero.jpg"/>
+    <div class="hero-picture">
+      <BorderedImage src="../../public/assets/images/hero.jpg" />
+      <img src="../../public/assets/images/cloud.png" alt="" width="100%" class="cloud">
+      <img src="../../public/assets/images/cloud.png" alt="" width="100%" class="cloud2">
+      <img src="../../public/assets/images/cloud2.png" alt="" width="100%" class="cloud3">
+    </div>
     <section>
       <h2>Heading</h2>
-      <p  class="sub-title">Subheading to introduce testimonials</p>
+      <p class="sub-title">Subheading to introduce testimonials</p>
       <div class="grid">
-        <div class="card" v-for="(value, index) in card" :key="index">
-          <h3>{{ value.title }}</h3>
-          <div class="card-info">
-            <figure>
-              <img :src="value.src" alt="">
-            </figure>
-            <div>
-              <p>{{ value.name }}</p>
-              <p class="sub-text">{{ value.description }}</p>
+        <div class="card-container" v-for="(value, index) in card" :key="index">
+          <div class="card">
+            <h3>{{ value.title }}</h3>
+            <div class="card-info">
+              <figure>
+                <img :src="value.src" alt="">
+              </figure>
+              <div>
+                <p>{{ value.name }}</p>
+                <p class="sub-text">{{ value.description }}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 </template>
 <script>
@@ -68,7 +76,6 @@ export default {
 <style scoped>
 .title {
   text-align: center;
-  margin: 5rem 0 10rem 0;
 }
 
 .title h1 {
@@ -79,8 +86,55 @@ export default {
   margin-bottom: 1rem;
 }
 
+.hero-picture {
+  position: relative;
+}
+
+.cloud {
+  position: absolute;
+  bottom: -10rem;
+  z-index: 1;
+  opacity: .6;
+  animation: cloud 150s infinite linear;
+}
+
+.cloud2 {
+  position: absolute;
+  bottom: -10rem;
+  z-index: 1;
+  opacity: .4;
+  animation: cloud2 160s infinite linear;
+}
+
+.cloud3 {
+  position: absolute;
+  bottom: -300px;
+  z-index: -1;
+  opacity: .4;
+}
+
+@keyframes cloud {
+  from {
+    left: -350px;
+  }
+
+  to {
+    left: 800px;
+  }
+}
+
+@keyframes cloud2 {
+  from {
+    left: 500px;
+  }
+  
+  to {
+    left: -350px;
+  }
+}
+
 section {
-  margin: 10rem 0;
+  margin: 15rem 0;
 }
 
 .grid {
@@ -90,10 +144,39 @@ section {
   margin-top: 3rem;
 }
 
+.card-container {
+  position: relative;
+}
+
 .card {
   padding: 2rem;
   border-radius: 10px;
+  background-color: white;
+  border: var(--border);
+  transition: .5s;
+}
+
+.card:hover {
   box-shadow: var(--shadow);
+  transform: translate(-5px, -5px);
+}
+
+.card-container:hover::before {
+  content: "";
+  position: absolute;
+  inset: 0%;
+  transform: rotate(10deg);
+  background-color: var(--bg);
+  border: var(--border);
+  border-radius: 10px;
+  animation: rotation 1s;
+  z-index: -1;
+}
+
+@keyframes rotation {
+  100% {
+    transform: rotate(370deg);
+  }
 }
 
 .card h3 {

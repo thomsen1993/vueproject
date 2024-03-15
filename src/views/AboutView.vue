@@ -38,7 +38,7 @@ export default {
   }
 
   .about-content {
-    margin-top: 4rem;
+    margin: auto 0;
   }
 
   h1 {

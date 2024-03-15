@@ -112,7 +112,7 @@ nav a {
 footer {
   display: flex;
   justify-content: space-between;
-  border-top: 2px double var(--border);
+  border-top: var(--border);
   padding: 5rem 0 1rem;
   font-size: 18px;
 }
@@ -159,6 +159,15 @@ footer {
 .links {
   display: flex;
   line-height: 2;
-  gap: 15rem;
+}
+
+.links ul {
+  border-left: var(--border);
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+
+.links ul:first-child {
+  border: none;
 }
 </style>
