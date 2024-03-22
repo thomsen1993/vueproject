@@ -4,18 +4,19 @@ import Btn from "@/components/Btn.vue";
 
 <template>
   <main>
-    <div class="title">
-      <h1>Home Page Title</h1>
-      <p class="sub-title">And a subheading describing the web site</p>
-      <Btn></Btn>
+    <div class="hero">
+      <div class="title">
+        <h1>Home Page Title</h1>
+        <p class="sub-title">And a subheading describing the web site</p>
+        <Btn></Btn>
+      </div>
+      <div class="hero-picture">
+        <BorderedImage src="../../public/assets/images/hero.jpg" />
+        <img src="../../public/assets/images/cloud.png" alt="" width="100%" class="cloud">
+        <img src="../../public/assets/images/cloud.png" alt="" width="100%" class="cloud2">
+      </div>
     </div>
-    <div class="hero-picture">
-      <BorderedImage src="../../public/assets/images/hero.jpg" />
-      <img src="../../public/assets/images/cloud.png" alt="" width="100%" class="cloud">
-      <img src="../../public/assets/images/cloud.png" alt="" width="100%" class="cloud2">
-      <img src="../../public/assets/images/cloud2.png" alt="" width="100%" class="cloud3">
-    </div>
-    <section>
+    <section class="wrapper">
       <h2>Heading</h2>
       <p class="sub-title">Subheading to introduce testimonials</p>
       <div class="grid">
@@ -74,8 +75,28 @@ export default {
 </script>
 
 <style scoped>
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  padding-bottom: 15rem;
+  padding-top: 10rem;
+}
+
 .title {
+  grid-column: 1/3;
+  grid-row: 1/1;
   text-align: center;
+  border: 4px double rgb(212, 212, 212);
+  border-radius: 20px 0;
+  background-color: rgba(0, 0, 0, .6);
+  backdrop-filter: blur(5px);
+  width: max-content;
+  height: max-content;
+  margin: 10rem auto;
+  padding: 2rem;
+  z-index: 1;
 }
 
 .title h1 {
@@ -87,30 +108,27 @@ export default {
 }
 
 .hero-picture {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
   position: relative;
+}
+
+.hero-picture figure {
+  width: 86%;
 }
 
 .cloud {
   position: absolute;
-  bottom: -10rem;
-  z-index: 1;
+  bottom: -15rem;
   opacity: .6;
   animation: cloud 150s infinite linear;
 }
 
 .cloud2 {
   position: absolute;
-  bottom: -10rem;
-  z-index: 1;
+  bottom: -15rem;
   opacity: .4;
   animation: cloud2 160s infinite linear;
-}
-
-.cloud3 {
-  position: absolute;
-  bottom: -300px;
-  z-index: -1;
-  opacity: .4;
 }
 
 @keyframes cloud {
@@ -127,15 +145,12 @@ export default {
   from {
     left: 500px;
   }
-  
+
   to {
     left: -350px;
   }
 }
 
-section {
-  margin: 15rem 0;
-}
 
 .grid {
   display: grid;
@@ -195,4 +210,26 @@ section {
   object-fit: cover;
   border-radius: 100%;
 }
+
+@media screen and (max-width: 1200px) {
+  .title {
+    margin: 2rem auto;
+  }
+
+  .cloud, .cloud2, .cloud3 {
+    width: 70%;
+    bottom: -10rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cloud, .cloud2, .cloud3 {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>

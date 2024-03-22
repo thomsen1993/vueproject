@@ -14,8 +14,6 @@ const props = defineProps(['src'])
   background-color: var(--bg);
   width: max-content;
   margin: 0 auto;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
   transform: rotate(10deg);
   width: 100%;
   height: auto;

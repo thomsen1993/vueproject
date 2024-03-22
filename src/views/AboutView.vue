@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="wrapper">
     <div class="about-content">
       <h1>{{ page.title }}</h1>
       <p class="sub-title">{{ page.subTitle }}</p>
@@ -35,6 +35,8 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
   }
 
   .about-content {

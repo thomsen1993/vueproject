@@ -5,9 +5,8 @@ import '@fortawesome/fontawesome-free/css/all.css'
 </script>
 
 <template>
-  <header>
+  <header class="wrapper">
     <img alt="Vue logo" src="@/assets/logo.svg" width="100" height="100" />
-
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
@@ -18,7 +17,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 
   <RouterView />
 
-  <footer>
+  <footer class="wrapper">
     <div class="socials-group">
       <img alt="Vue logo" src="@/assets/logo.svg" width="50" height="50" />
       <div class="socials">
@@ -112,6 +111,7 @@ nav a {
 footer {
   display: flex;
   justify-content: space-between;
+  text-align: center;
   border-top: var(--border);
   padding: 5rem 0 1rem;
   font-size: 18px;
@@ -157,7 +157,8 @@ footer {
 }
 
 .links {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   line-height: 2;
 }
 
@@ -169,5 +170,25 @@ footer {
 
 .links ul:first-child {
   border: none;
+}
+
+@media screen and (max-width: 1000px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer img {
+    margin: .8rem auto;
+  }
+
+  .links {
+    grid-template-columns: 1fr;
+  }
+
+  .links ul {
+    border-top: var(--border);
+    border-left: none;
+  }
 }
 </style>

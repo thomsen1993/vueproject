@@ -1,7 +1,6 @@
-
 import BorderedImage from '@/components/BorderedImage.vue';
 <template>
-    <main class="grid-2-cols">
+    <main class="grid-2-cols wrapper">
         <form action="">
             <div>
                 <h1>Contact us</h1>
@@ -26,7 +25,7 @@ import BorderedImage from '@/components/BorderedImage.vue';
                 <textarea name="" id="" rows="5" placeholder="Enter your question or message"></textarea>
             </div>
         </form>
-        <BorderedImage src="../../public/assets/images/b.jpg"/>
+        <BorderedImage src="../../public/assets/images/b.jpg" />
     </main>
 </template>
 
@@ -34,13 +33,18 @@ import BorderedImage from '@/components/BorderedImage.vue';
 import BorderedImage from "@/components/BorderedImage.vue";
 
 export default {
-  components: {
-    BorderedImage,
-  }
+    components: {
+        BorderedImage,
+    }
 }
 </script>
 
 <style scoped>
+main {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
 .grid-2-cols {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
